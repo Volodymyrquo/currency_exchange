@@ -1,25 +1,15 @@
 import React from "react";
-import loader from "../assets/images/loader.gif";
 import s1 from "../assets/images/s1.png";
 import s2 from "../assets/images/s2.png";
 import s3 from "../assets/images/s3.png";
 import s4 from "../assets/images/s4.png";
 
 
-const About = () => {
+const Services = () => {
     return       (
         <div id="inner_page" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 
-       {/* <!-- LOADER -->
-        <div id="preloader">
-            <div className="loader">
-                <img src="images/loader.gif" alt="#"/>
-            </div>
-        </div>
-        <!-- end loader -->
-        <!-- END LOADER -->
-
-        <!-- Start header -->*/}
+       {/*<Preloader/>*/}
 
 
 
@@ -114,4 +104,4 @@ const About = () => {
         )
 }
 
-export default About;
+export default Services;

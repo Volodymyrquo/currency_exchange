@@ -2,23 +2,16 @@ import React from "react";
 import loader from "../assets/images/loader.gif";
 import img1 from "../assets/images/img1.png";
 import {NavLink} from "react-router-dom";
+import {connect} from "react-redux";
+import {setCurrencyRate} from "../redux/exchange-reducer";
+import Preloader from "./common/preloader/Preloader";
 
 
-const Exchange = () => {
+const Exchange = (props) => {
     return       (
         <div id="inner_page" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 
-{/*        <!-- LOADER -->
-        <div id="preloader">
-            <div className="loader">
-                <img src="images/loader.gif" alt="#"/>
-            </div>
-        </div>
-        <!-- end loader -->
-        <!-- END LOADER -->
-
-        <!-- Start header -->*/}
-
+{/*<Preloader/>*/}
 
 
       {/*  <!-- Start Banner -->*/}
@@ -68,5 +61,11 @@ const Exchange = () => {
         </div>
     )
 }
-
-export default Exchange;
+const mapStateToProps = (state) => (
+    {
+        base: state.exchange.base,
+        date: state.exchange.date,
+        rates: state.exchange.rates
+    }
+)
+export default connect(mapStateToProps, {setCurrencyRate})(Exchange);

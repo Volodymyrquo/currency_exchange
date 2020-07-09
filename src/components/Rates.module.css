@@ -1,0 +1,12 @@
+.table {
+width: 80%;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 20px;
+
+}
+
+.table th {
+    color: #ff880e;
+    font-size: 18px;
+}

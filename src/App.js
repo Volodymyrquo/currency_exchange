@@ -12,6 +12,7 @@ import NotFound from "./components/NotFound";
 import News from "./components/News";
 import Contact from "./components/Contact";
 import Rates from "./components/Rates";
+import Cryptoexchanges from "./components/Cryptoexchanges";
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
             <Route path="/home" render={() => <Home/>}/>
             <Route path="/about" render={() => <About/>}/>
             <Route path="/exchange" render={() => <Exchange/>}/>
-            <Route path="/services" render={() => <Services/>}/>
+            {/*<Route path="/services" render={() => <Services/>}/>*/}
+            <Route path="/cryptoexchanges" render={() => <Cryptoexchanges/>}/>
             <Route path="/news" render={() => <News/>}/>
             <Route path="/contact" render={() => <Contact />}/>
             <Route path="/rates" render={() => <Rates />}/>
