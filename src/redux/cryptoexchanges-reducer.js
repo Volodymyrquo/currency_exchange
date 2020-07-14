@@ -1,27 +1,25 @@
-import {ratesAPI} from "../api/Api";
+import {exchangeDataAPI} from "../api/CryptoAPI";
 
-const SET_RATE = "SET_RATE";
+const SET_EXCHANGES = "SET_EXCHANGES";
 
 const initialState = {
-    base: "",
-    date: "",
-    rates: {}
+   exchanges: []
 }
 
-const exchangeReducer = (state = initialState, action) => {
+const cryptoExchangesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_RATE:
-            return {...state, rates: action.rate}
+        case SET_EXCHANGES:
+            return {...state, exchanges: action.exchanges}
         default:
             return state;
     }
 }
 
-export const setRate = (rate) => ({type: SET_RATE, rate});
+export const setExchanges = (exchanges) => ({type: SET_EXCHANGES, exchanges});
 
-export const setCurrencyRate = () => async (dispatch) => {
-    const response = await ratesAPI.latestRate();
-    dispatch(setRate(response.data.rates));
+export const setCryptoExchanges = () => async (dispatch) => {
+    const response = await exchangeDataAPI.exchangesAll();
+    dispatch(setExchanges(response.data));
 }
 
-export default exchangeReducer;
+export default cryptoExchangesReducer;

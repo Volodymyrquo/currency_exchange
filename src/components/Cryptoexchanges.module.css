@@ -1,72 +1,157 @@
-import React, {useEffect} from "react";
-import s1 from "../assets/images/s1.png";
-import s2 from "../assets/images/s2.png";
-import s3 from "../assets/images/s3.png";
-import s4 from "../assets/images/s4.png";
-import {connect} from "react-redux";
-import {setCryptoExchanges} from "../redux/cryptoexchanges-reducer";
-
-
-const Cryptoexchanges = (props) => {
-    useEffect(() => {
-        props.setCryptoExchanges()
-    });
-
-      return       (
-        <div id="inner_page" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
-
-          {/*  <Preloader/>*/}
-
- {/*       <div className="section inner_page_banner">
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="banner_title">
-                            <h3>Services</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*/}
-
-
-        <div className="section layout_padding">
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="full">
-                            <div className="heading_main text_align_center">
-                                <h2><span className="theme_color"></span>Crypto Exchanges</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    {props.exchanges.map(item => <div className="col-md-3 col-sm-6 col-xs-12">
-                        <div className="full services_blog">
-                            <img className="img-responsive" src={item.logo} alt="#"/>
-                            <h4>{item.exchange}</h4>
-                        </div>
-                    </div>)}
-                </div>
-                <div className="row margin-top_30">
-                    <div className="col-sm-12">
-                        <div className="full">
-                            <div className="center">
-                                <a className="main_bt" href="#">See More ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-
-        )
+.service_blog {
+    float: left;
+    width: 100%;
+    border: solid #555 1px;
+    padding: 30px;
+    margin-top: 30px;
+    transition: ease all 0.2s;
 }
-const mapStateToProps = (state) => ({
-    exchanges: state.cryptoExchanges.exchanges
-    })
 
-export default connect(mapStateToProps, {setCryptoExchanges})(Cryptoexchanges);
+.services_blog {
+    margin-bottom: 30px;
+}
+
+.service_blog:hover, .service_blog:focus {
+    box-shadow: 0 0 30px 0 rgba(0,0,0,.2);
+    transform: scale(1.02);
+}
+
+.service_blog h4 {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 18px;
+    border-bottom: solid #222 2px;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.effect-service {
+    position: relative;
+    height: auto;
+    text-align: center;
+    cursor: pointer;
+    border: 8px solid #eee;
+    margin-bottom: 30px;
+}
+
+figure.effect-service {
+    background: -webkit-linear-gradient(-45deg, #EC65B7 0%, #05E0D8 100%);
+    background: linear-gradient(-45deg, #EC65B7 0%, #05E0D8 100%);
+}
+
+figure img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    max-width: 100%;
+    opacity: 0.8;
+}
+
+figure.effect-service img {
+    opacity: 0.85;
+    -webkit-transition: opacity 0.35s;
+    transition: opacity 0.35s;
+}
+
+figure figcaption,
+.grid figure figcaption>a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+figure figcaption {
+    padding: 10px;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 1.25em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+figure.effect-service h2 {
+    padding: 20px;
+    width: 50%;
+    height: 50%;
+    text-align: left;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(10px, 10px, 0);
+    transform: translate3d(10px, 10px, 0);
+}
+
+figure.effect-service h2 {
+    background: #e91327;
+    padding: 13px;
+    width: 94%;
+    height: 58px;
+    border: 0;
+    margin: 0;
+    font-weight: 200;
+    font-size: 34px;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+}
+
+figure.effect-service p {
+    padding: 15px;
+    width: 100%;
+    height: 80%;
+    font-size: 14px;
+    border: 2px solid #fff;
+    margin: 0;
+    font-weight: 300;
+    display: none;
+}
+
+figure.effect-service p {
+    float: right;
+    padding: 20px;
+    text-align: left;
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+figure figcaption>a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+}
+
+figure.effect-service:hover img {
+    opacity: 0.6;
+}
+
+figure.effect-service:hover p {
+    opacity: 1;
+}
+
+figure.effect-service:hover {
+    border: 8px solid #e91327;
+}
+
+.services_blog h4 {
+    color: #000;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 0 15px -8px #000;
+    margin: 0;
+    padding: 0;
+    min-height: 110px;
+    line-height: 110px !important;
+}
+
+.services_blog img {
+    max-height: 370px;
+    width: 100%;
+}
+

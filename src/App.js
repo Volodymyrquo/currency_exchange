@@ -24,7 +24,7 @@ function App() {
             <Route path="/home" render={() => <Home/>}/>
             <Route path="/about" render={() => <About/>}/>
             <Route path="/exchange" render={() => <Exchange/>}/>
-            {/*<Route path="/services" render={() => <Services/>}/>*/}
+            <Route path="/services" render={() => <Services/>}/>
             <Route path="/cryptoexchanges" render={() => <Cryptoexchanges/>}/>
             <Route path="/news" render={() => <News/>}/>
             <Route path="/contact" render={() => <Contact />}/>

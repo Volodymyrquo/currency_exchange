@@ -1,33 +1,29 @@
-import React from "react";
-import loader from "../assets/images/loader.gif";
-import s1 from "../assets/images/s1.png";
-import s2 from "../assets/images/s2.png";
-import s3 from "../assets/images/s3.png";
-import s4 from "../assets/images/s4.png";
+import React, {useEffect} from "react";
+import {connect} from "react-redux";
+import {setCryptoExchanges} from "../redux/cryptoexchanges-reducer";
 
 
-const Cryptoexchanges = () => {
-
-    let exchange = [{name:"Safe & Secure", logo: s1}, {name:"Mobile Apps", logo: s2},{name:"Wallet", logo: s3} ,
-        {name:"Experts Support", logo: s4},{name:"Safe & Secure", logo: s1}, {name:"Mobile Apps", logo: s2},
-        {name:"Wallet", logo: s3},{name:"Experts Support", logo: s4}];
+const Cryptoexchanges = (props) => {
+    useEffect(() => {
+        props.setCryptoExchanges()
+    });
 
       return       (
         <div id="inner_page" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 
           {/*  <Preloader/>*/}
 
- {/*       <div className="section inner_page_banner">
+        <div className="section inner_page_banner">
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="banner_title">
-                            <h3>Services</h3>
+                            <h3>Crypto Exchanges</h3>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>*/}
+        </div>
 
 
         <div className="section layout_padding">
@@ -42,10 +38,10 @@ const Cryptoexchanges = () => {
                     </div>
                 </div>
                 <div className="row">
-                    {exchange.map(item => <div className="col-md-3 col-sm-6 col-xs-12">
+                    {props.exchanges.map(item => <div className="col-md-3 col-sm-6 col-xs-12">
                         <div className="full services_blog">
                             <img className="img-responsive" src={item.logo} alt="#"/>
-                            <h4>{item.name}</h4>
+                            <h4>{item.exchange}</h4>
                         </div>
                     </div>)}
                 </div>
@@ -65,5 +61,8 @@ const Cryptoexchanges = () => {
 
         )
 }
+const mapStateToProps = (state) => ({
+    exchanges: state.cryptoExchanges.exchanges
+    })
 
-export default Cryptoexchanges;
+export default connect(mapStateToProps, {setCryptoExchanges})(Cryptoexchanges);
